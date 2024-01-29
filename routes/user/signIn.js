@@ -1,26 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const { signUpUser } = require('../../controllers/userAuth');
+const { signInUser } = require('../controllers/userAuth');
 
-// GET request to render the signup page
+// GET request to render the signin page
 router.get('/', (req, res) => {
     try {
-        res.render('signup');
+        res.render('signin');
     } catch (error) {
-        console.error("Signup Error:", error);
+        console.error("Signin Error:", error);
     }
 });
 
 // POST request to handle the form submission
 router.post('/', async (req, res) => {
     try {
-        await signUpUser(req.body.email, req.body.password, req.body.username);
-        res.status(200).json({ message: 'Signup successful' });
+        await signInUser(req.body.email, req.body.password);
+        res.status(200).send('User signed in successfully');
     } catch (error) {
-        console.error("Signup Error:", error);
         res.status(400).send(error.message);
     }
 });
-
 
 module.exports = router;
