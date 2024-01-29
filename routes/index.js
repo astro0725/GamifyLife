@@ -8,10 +8,12 @@ const signInRoutes = require('./user/signIn');
 const signUpRoutes = require('./user/signUp');
 const logOutRoutes = require('./user/logOut');
 const deleteUserRoutes = require('./user/deleteUser');
+
 const createTaskRoutes = require('./task/create');
 const editTaskRoutes = require('./task/edit');
 const deleteTaskRoutes = require('./task/delete');
 const completeTaskRoutes = require('./task/complete');
+
 const createRewardRoutes = require('./reward/create');
 const editRewardRoutes = require('./reward/edit');
 const deleteRewardRoutes = require('./reward/delete');
@@ -29,6 +31,7 @@ router.use('/task/create', createTaskRoutes);
 router.use('/task/create', editTaskRoutes);
 router.use('/task/delete', deleteTaskRoutes);
 router.use('/task/complete', completeTaskRoutes);
+
 router.use('/reward/create', createRewardRoutes);
 router.use('/reward/edit', editRewardRoutes);
 router.use('/reward/delete', deleteRewardRoutes);
