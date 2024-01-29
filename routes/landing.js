@@ -3,7 +3,7 @@ const router = express.Router();
 const { checkAuthentication } = require('../utils/authCheck');
 
 router.get('/', checkAuthentication, (req, res) => {
-  res.render('main');
+  res.render('dashboard');
 });
 
 module.exports = router;
