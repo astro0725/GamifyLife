@@ -1,7 +1,7 @@
 const db = require("../models");
 const Task = db.Tasks;
 
-async function createTask(req, title, description) {
+async function createTask(req, title, description, difficulty) {
   try {
     // check if there is an authenticated user 
     if (!req.session.userId) {
