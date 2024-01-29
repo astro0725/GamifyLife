@@ -3,7 +3,7 @@ const router = express.Router();
 const { deleteTask } = require('../../controllers/taskHandling'); 
 
 // DELETE request to delete an existing task
-router.delete('/delete-task/:taskId', async (req, res) => {
+router.delete('/:taskId', async (req, res) => {
   const taskId = req.params.taskId; 
   const result = await deleteTask(req, taskId);
 
