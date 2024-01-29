@@ -29,6 +29,10 @@ app.use(bodyParser.json());
 const routes = require("./routes/index");
 app.use('/', routes)
 
+hbs.handlebars.registerPartial("profileCard", './views/partials/profileCard')
+hbs.handlebars.registerPartial("taskList", './views/partials/taskList')
+hbs.handlebars.registerPartial("rewardList", './views/partials/rewardList')
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
