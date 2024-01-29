@@ -30,6 +30,38 @@ async function signUpUser(req, email, password, username) {
   }
 }
 
+// function to sign in an existing user with email and password
+async function signInUser(req, email, password) {
+  try {
+    // attempt to find the user by email in the database
+    const user = await User.findOne({ where: { email: email } });
+
+    if (!user) {
+      // user with the provided email does not exist
+      return { error: "User not found." };
+    }
+
+    // compare the provided password with the hashed password from the database
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+
+    if (!isPasswordValid) {
+      // passwords don't match
+      return { error: "Invalid password." };
+    }
+
+    // store user session data once signed in
+    req.session.userId = user.id;
+
+    // log the user info
+    console.log("User signed in:", user);
+    return { success: true, user };
+  } catch (error) {
+    console.error("Error during sign in:", error);
+    return { error: "Error during sign in." };
+  }
+}
+
 module.exports = {
     signUpUser,
+    signInUser,
 };
