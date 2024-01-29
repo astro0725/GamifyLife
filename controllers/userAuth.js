@@ -61,7 +61,32 @@ async function signInUser(req, email, password) {
   }
 }
 
+async function logoutUser(req) {
+  try {
+    // check if a user session exists
+    if (req.session) {
+      // destroy the user's session
+      req.session.destroy(err => {
+        if (err) {
+          console.error("Error destroying session:", err);
+          return { error: "Error destroying session." };
+        } else {
+          console.log("User signed out successfully.");
+          return { success: true };
+        }
+      });
+    } else {
+      console.error("No active session to log out.");
+      return { error: "No active session." };
+    }
+  } catch (error) {
+    console.error("Error during logout:", error);
+    return { error: "Error during logout." };
+  }
+}
+
 module.exports = {
     signUpUser,
     signInUser,
+    logoutUser,
 };
