@@ -14,7 +14,7 @@ const deleteTaskRoutes = require('./task/delete');
 const completeTaskRoutes = require('./task/complete');
 const createRewardRoutes = require('./reward/create');
 const editRewardRoutes = require('./reward/edit');
-const deleteRewardRoutes = require('./reward/delete.js');
+const deleteRewardRoutes = require('./reward/delete');
 const redeemRewardRoutes = require('./reward/redeem');
 
 // use the imported routes
@@ -32,6 +32,6 @@ router.use('/task/complete', completeTaskRoutes);
 router.use('/reward/create', createRewardRoutes);
 router.use('/reward/edit', editRewardRoutes);
 router.use('/reward/delete', deleteRewardRoutes);
-router.use('/reward/redeem', completeRewardRoutes);
+router.use('/reward/redeem', redeemRewardRoutes);
 
 module.exports = router;
