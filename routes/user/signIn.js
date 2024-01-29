@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { signInUser } = require('../controllers/userAuth');
+const { signInUser } = require('../../controllers/userAuth');
 
 // GET request to render the signin page
 router.get('/', (req, res) => {
