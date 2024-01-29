@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       difficulty: {
-
+        type: DataTypes.ENUM('low', 'medium', 'high'),
+        allowNull: false,
       },
       isCompleted: {
         type: DataTypes.BOOLEAN,

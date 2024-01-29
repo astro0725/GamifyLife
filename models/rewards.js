@@ -15,10 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       content: {
         type: DataTypes.STRING,
       },
-      difficulty: {
-
-      },
-      isCompleted: {
+      isRedeemed: {
         type: DataTypes.BOOLEAN,
       },
       createdAt: {
