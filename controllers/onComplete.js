@@ -1,6 +1,7 @@
 const db = require("../models");
 const Task = db.Tasks;
 const User = db.User;
+const Reward = db.Reward;
 
 async function completeTask(taskId) {
   try {
