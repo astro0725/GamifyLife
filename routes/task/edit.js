@@ -10,7 +10,6 @@ router.put('/:taskId', async (req, res) => {
 
   if (result.success) {
     console.log('Task edited successfully:', result.task); 
-    res.status(200).json({ message: 'Task edited successfully', task: result.task });
   } else {
     console.error('Task edit error:', result.error); 
     res.status(400).json({ error: result.error });
