@@ -1,0 +1,31 @@
+const db = require("../models");
+const Reward = db.Rewards;
+
+async function createReward(req, title, description) {
+  try {
+    // check if there is an authenticated user 
+    if (!req.session.userId) {
+      return { error: "User not authenticated." };
+    }
+
+    const userId = req.session.userId;
+
+    // create a new reward record associated with the authenticated user
+    const newReward = await Reward.create({
+      title: title,
+      description: description,
+      cost: difficulty,
+      userId: userId, 
+    });
+
+    console.log("Reward created successfully:", newReward);
+    return { success: true, Reward: newReward };
+  } catch (error) {
+    console.error("Error creating Reward:", error);
+    return { error: "Error creating Reward." };
+  }
+}
+
+module.exports = {
+  createReward,
+};
