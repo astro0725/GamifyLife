@@ -12,10 +12,12 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
+  cookie: { secure: true }
 }));
 
 app.engine("handlebars", hbs.engine);
@@ -23,7 +25,6 @@ app.set("view engine", "handlebars");
 
 app.use(express.static("public"));
 app.use(bodyParser.json());
-app.use(cookieParser());
 
 const routes = require("./routes/index");
 app.use('/', routes)
