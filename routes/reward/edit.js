@@ -6,7 +6,11 @@ const { editReward } = require('../../controllers/rewardHandling');
 router.post('/:rewardId', async (req, res) => {
   const rewardId = req.params.rewardId; 
   const { title, description, cost } = req.body; 
-  const result = await editTask(req, taskId, updatedData);
+  const result = await editReward(req, rewardId, {
+    title: title,
+    description: description,
+    cost: cost,
+  });
 
   if (result.success) {
     console.log('Reward edited successfully');
