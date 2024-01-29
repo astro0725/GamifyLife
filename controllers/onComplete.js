@@ -55,7 +55,34 @@ function updateLevel(user) {
   }
 }
 
+async function redeemReward(userId, rewardId) {
+  try {
+    const user = await User.findByPk(userId);
+    const reward = await Reward.findByPk(rewardId);
+
+    if (!reward) {
+      return { error: "Reward not found." };
+    }
+
+    if (user.coins < reward.cost) {
+      return { error: "Not enough coins." };
+    }
+
+    user.coins -= reward.cost; 
+    reward.isRedeemed = true; 
+
+    await user.save();
+    await reward.save();
+
+    return { success: true, user, reward };
+  } catch (error) {
+    console.error("Error redeeming reward:", error);
+    return { error: "Error redeeming reward." };
+  }
+}
+
 module.exports = {
   completeTask,
-  updateLevel
+  updateLevel,
+  redeemReward,
 };
