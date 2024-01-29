@@ -56,7 +56,39 @@ async function editTask(req, taskId, updatedData) {
   }
 }
 
+async function deleteTask(req, res) {
+  const taskId = req.params.taskId;
+
+  try {
+    // check if there is an authenticated user
+    if (!req.session.userId) {
+      return res.status(401).json({ error: "User not authenticated." });
+    }
+
+    const userId = req.session.userId;
+
+    // find the task in the database
+    const existingTask = await Task.findOne({
+      where: { id: taskId, userId: userId },
+    });
+
+    if (!existingTask) {
+      return res.status(404).json({ error: "Task not found." });
+    }
+
+    // delete the task from the database
+    await existingTask.destroy();
+
+    console.log("Task deleted successfully.");
+    res.status(200).json({ message: "Task deleted successfully." });
+  } catch (error) {
+    console.error("Error deleting task:", error);
+    res.status(500).json({ error: "Error deleting task." });
+  }
+}
+
 module.exports = {
   createTask,
   editTask,
+  deleteTask,
 };

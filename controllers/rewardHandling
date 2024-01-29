@@ -56,7 +56,39 @@ async function editReward(req, rewardId, updatedData) {
   }
 }
 
+async function deleteReward(req, res) {
+  const rewardId = req.params.rewardId;
+
+  try {
+    // check if there is an authenticated user
+    if (!req.session.userId) {
+      return res.status(401).json({ error: "User not authenticated." });
+    }
+
+    const userId = req.session.userId;
+
+    // find the reward in the database
+    const existingReward = await Reward.findOne({
+      where: { id: rewardId, userId: userId },
+    });
+
+    if (!existingReward) {
+      return res.status(404).json({ error: "Reward not found." });
+    }
+
+    // delete the reward from the database
+    await existingReward.destroy();
+
+    console.log("Reward deleted successfully.");
+    res.status(200).json({ message: "Reward deleted successfully." });
+  } catch (error) {
+    console.error("Error deleting Reward:", error);
+    res.status(500).json({ error: "Error deleting Reward." });
+  }
+}
+
 module.exports = {
   createReward,
   editReward,
+  deleteReward,
 };
