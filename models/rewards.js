@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
       content: {
         type: DataTypes.STRING,
       },
+      cost: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       isRedeemed: {
         type: DataTypes.BOOLEAN,
       },
