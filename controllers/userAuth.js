@@ -61,6 +61,7 @@ async function signInUser(req, email, password) {
   }
 }
 
+// function to logout user
 async function logoutUser(req) {
   try {
     // check if a user session exists
@@ -85,8 +86,44 @@ async function logoutUser(req) {
   }
 }
 
+// function to delete a user account
+async function deleteUser(req) {
+  try {
+    // check if there is an authenticated user session
+    if (!req.session.userId) {
+      return { error: "User not authenticated." };
+    }
+
+    const userId = req.session.userId;
+
+    // find the user in the database
+    const user = await User.findByPk(userId);
+
+    if (!user) {
+      return { error: "User not found." };
+    }
+
+    // delete the user from the database
+    await user.destroy();
+
+    // log the user out by destroying their session
+    req.session.destroy(err => {
+      if (err) {
+        console.error("Error destroying session:", err);
+      }
+    });
+
+    console.log("User deleted successfully.");
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    return { error: "Error deleting user." };
+  }
+}
+
 module.exports = {
     signUpUser,
     signInUser,
     logoutUser,
+    deleteUser
 };
