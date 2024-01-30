@@ -13,7 +13,6 @@ async function createReward(req, title, description, cost) {
     // create a new reward record associated with the authenticated user
     const newReward = await Reward.create({
       title: title,
-      description: description,
       cost: cost,
       userId: userId, 
     });
