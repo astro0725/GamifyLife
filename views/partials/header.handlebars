@@ -29,15 +29,15 @@
   </div>
   <div class="navbar-end">
     {{#if userIsAuthenticated}}
-      <a class="btn">Login</a>
-      <a class="btn">Signup</a>
-    {{else}}
-      <button class="btn btn-ghost btn-circle">
+    <button class="btn btn-ghost btn-circle">
         <div class="indicator">
           <img src="/assets/svg/logout.svg" alt="Logout" />
           <span class="badge badge-xs badge-primary indicator-item"></span>
         </div>
       </button>
+    {{else}}
+      <a class="btn">Login</a>
+      <a class="btn">Signup</a>
     {{/if}}
   </div>
 </div>
