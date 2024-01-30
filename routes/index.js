@@ -28,7 +28,7 @@ router.use('/user/logout', logOutRoutes);
 router.use('/user/delete', deleteUserRoutes);
 
 router.use('/task/create', createTaskRoutes);
-router.use('/task/create', editTaskRoutes);
+router.use('/task/edit', editTaskRoutes);
 router.use('/task/delete', deleteTaskRoutes);
 router.use('/task/complete', completeTaskRoutes);
 
