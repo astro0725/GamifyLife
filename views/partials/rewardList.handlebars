@@ -1,0 +1,21 @@
+{{#if rewards.length}}
+<div class="collapse collapse-arrow bg-base-200">
+  <input type="radio" name="my-accordion-2" /> 
+  <div class="collapse-title text-xl font-medium">
+    {{title}}
+  </div>
+  <div class="collapse-content"> 
+    {{#each rewards}}
+    <div>
+      <div>
+        <div class="card-actions justify-end">
+          <button class="btn btn-primary">Redeem</button>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+{{else}}
+<p>No rewards available.</p>
+{{/if}}

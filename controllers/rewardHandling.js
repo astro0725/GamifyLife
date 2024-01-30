@@ -1,7 +1,7 @@
 const db = require("../models");
 const Reward = db.Rewards;
 
-async function createReward(req, title, description, cost) {
+async function createReward(req, title, cost) {
   try {
     // check if there is an authenticated user 
     if (!req.session.userId) {
