@@ -63,6 +63,13 @@ function updateLevel(user) {
       break;
     }
   }
+
+  // calculate the user's level as a percentage
+  const nextLevelThreshold = levelThresholds[user.level] || levelThresholds[levelThresholds.length - 1];
+  const currentLevelThreshold = levelThresholds[user.level - 1] || 0;
+  const experienceWithinLevel = user.experience - currentLevelThreshold;
+  const experienceToNextLevel = nextLevelThreshold - currentLevelThreshold;
+  user.levelProgress = (experienceWithinLevel / experienceToNextLevel) * 100;
 }
 
 // function to redeem a reward using user's coins
