@@ -8,6 +8,12 @@
     {{#each rewards}}
     <div>
       <div>
+        <div class="card-actions justify-start">
+          <button class="btn btn-circle">
+            <img src="/assets/svg/coin.svg" alt="Coin" />
+            <a>{{this.cost}}</a>
+          </button>
+        </div>
         <div class="card-actions justify-end">
           <button class="btn btn-primary">Redeem</button>
         </div>
