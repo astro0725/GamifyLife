@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express = require('express');
-const Sequelize = require('sequelize');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const cookieParser = require("cookie-parser");
@@ -13,7 +12,7 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const sequelize = require ("./config/db.js");
+const sequelize = require ("./config/connection.js");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
