@@ -1,27 +1,40 @@
-{{#if rewards.length}}
-<div class="collapse collapse-arrow bg-base-200">
-  <input type="radio" name="my-accordion-2" /> 
-  <div class="collapse-title text-xl font-medium">
-    {{title}}
-  </div>
-  <div class="collapse-content"> 
-    {{#each rewards}}
-    <div>
-      <div>
-        <div class="card-actions justify-start">
-          <button class="btn btn-circle">
-            <img src="/assets/svg/coin.svg" alt="Coin" />
-            <a>{{this.cost}}</a>
-          </button>
-        </div>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Redeem</button>
-        </div>
+<div class="card w-96 bg-base-100 shadow-xl">
+  <a href="#add-reward-modal" class="btn btn-wide">Add Reward</a>
+  <!-- Put this part before </body> tag -->
+  <div class="modal" role="dialog" id="add-reward-modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Hello!</h3>
+      <p class="py-4">This modal works with anchor links</p>
+      <div class="modal-action">
+      <a href="#" class="btn">Yay!</a>
       </div>
     </div>
-    {{/each}}
   </div>
+  {{#if rewards.length}}
+  <div class="collapse collapse-arrow bg-base-200">
+    <input type="radio" name="my-accordion-2" /> 
+    <div class="collapse-title text-xl font-medium">
+      {{title}}
+    </div>
+    <div class="collapse-content"> 
+      {{#each rewards}}
+      <div>
+        <div>
+          <div class="card-actions justify-start">
+            <button class="btn btn-circle">
+              <img src="/assets/svg/coin.svg" alt="Coin" />
+              <a>{{this.cost}}</a>
+            </button>
+          </div>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">Redeem</button>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  {{else}}
+  <p>No rewards available.</p>
+  {{/if}}
 </div>
-{{else}}
-<p>No rewards available.</p>
-{{/if}}
