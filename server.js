@@ -4,10 +4,8 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-const bcrypt = require('bcrypt');
 const exphbs = require("express-handlebars");
 const hbs = exphbs.create({ defaultLayout: "main" });
-const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
