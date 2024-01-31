@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const bcrypt = require('bcrypt');
 const exphbs = require("express-handlebars");
 const hbs = exphbs.create({ defaultLayout: "main" });
+const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -16,8 +17,11 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(session({
   secret: process.env.SESSION_SECRET,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   cookie: { secure: true }
 }));
 
