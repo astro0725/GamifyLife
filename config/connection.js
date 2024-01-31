@@ -9,7 +9,7 @@ let sequelize;
 
 if (ENV === 'production') {
     sequelize = new Sequelize(process.env[config.use_env_variable], {
-        dialect: 'mysql',
+        dialect: config.dialect,
     });
 } else {
     sequelize = new Sequelize(config.database, config.username, config.password, {
