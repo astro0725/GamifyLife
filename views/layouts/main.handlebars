@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html data-theme="synthwave" lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gamify Life</title>
-  <link href="/css/tailwind.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamify Life</title>
+    <link href="/css/tailwind.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  </head>
 
-<body>
-  <!-- Render the header partial -->
-  {{> header }}
-  <!-- Render the sub layout -->
-  {{{ body }}}
-</body>
-<!-- include the JavaScript file for handling special functions -->
-<script src="/js/header/signin.js"></script>
-<script src="/js/header/signup.js"></script>
-<script src="/js/header/logout.js"></script>
-<script src="/js/header/name.js"></script>
-<script src="/js/userAuth/signin.js"></script>
-<script src="/js/userAuth/signup.js"></script>
+  <body>
+    <!-- Render the header partial -->
+    {{> header }}
+    <!-- Render the sub layout -->
+    {{{ body }}}
+  </body>
+
 </html>
