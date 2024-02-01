@@ -37,8 +37,12 @@
         </div>
       </button>
     {{else}}
-      <a id="signinBtn" class="btn">Sign In</a>
-      <a id="signupBtn" class="btn">Sign Up</a>
+      {{#if showSignInButton}}
+        <a id="signinBtn" class="btn">Sign In</a>
+      {{/if}}
+      {{#if showSignUpButton}}
+        <a id="signupBtn" class="btn">Sign Up</a>
+      {{/if}}
     {{/if}}
   </div>
 </div>

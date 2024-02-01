@@ -5,7 +5,7 @@ const { signUpUser } = require('../../controllers/userAuth');
 // GET request to render the signup page
 router.get('/', (req, res) => {
   try {
-    res.render('signUp');
+    res.render('signUp', { showSignInButton: true });
   } catch (error) {
     console.error("Signup Error:", error); 
   }
