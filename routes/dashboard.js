@@ -1,7 +1,9 @@
+const express = require('express');
+const router = express.Router();
 const db = require("../models");
 const User = db.User;
 
-router.get('/dashboard', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const userId = req.session.userId;
 
@@ -24,3 +26,5 @@ router.get('/dashboard', async (req, res) => {
     res.status(500).render('error', { error: 'Internal server error' });
   }
 });
+
+module.exports = router;

@@ -3,6 +3,7 @@ const router = express.Router();
 
 // import individual route modules
 const landingRoutes = require('./landing');
+const dashboardRoutes = require('./dashboard');
 
 const signInRoutes = require('./user/signIn');
 const signUpRoutes = require('./user/signUp');
@@ -21,6 +22,7 @@ const redeemRewardRoutes = require('./reward/redeem');
 
 // use the imported routes
 router.use('/', landingRoutes);
+router.use('/dashboard', dashboardRoutes);
 
 router.use('/user/signin', signInRoutes);
 router.use('/user/signup', signUpRoutes);
