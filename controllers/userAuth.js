@@ -38,8 +38,10 @@ async function signInUser(req, email, password) {
       return { error: "User not found." };
     }
 
-    // compare the provided password with the hashed password from the database
-    const isPasswordValid = await bcrypt.compare(password, user.password);
+    // // compare the provided password with the hashed password from the database
+    // const isPasswordValid = await bcrypt.compare(password, user.password);
+
+    const isPasswordValid = (password === user.password);
 
     if (!isPasswordValid) {
       // passwords don't match
