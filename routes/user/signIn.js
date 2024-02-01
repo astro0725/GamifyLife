@@ -14,10 +14,12 @@ router.get('/', (req, res) => {
 // POST request to handle the form submission
 router.post('/', async (req, res) => {
   try {
-    await signInUser(req.body.email, req.body.password);
-    console.log('User signed in successfully');
+    const result = await signInUser(req.body.email, req.body.password);
+    console.log('Signin successful');
+    res.json({ message: 'Signin successful', data: result });
   } catch (error) {
-    console.error('Error signing in user:', error);
+    console.error("Signin Error:", error);
+    res.status(500).json({ error: "Signin Error" });
   }
 });
 
