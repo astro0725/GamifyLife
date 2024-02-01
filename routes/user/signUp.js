@@ -19,8 +19,7 @@ router.post('/', async (req, res) => {
     const result = await signUpUser(req, email, password, username);
 
     if (result.success) {
-      res.status(200).json({ message: 'User registered successfully' });
-      res.redirect('/', 'dashboard');
+      res.render('dashboard')
     } else {
       res.status(400).json({ error: result.error });
     }

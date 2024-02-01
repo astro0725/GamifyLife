@@ -9,11 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
-      const username = document.getElementById('username').value;
 
       console.log("Email:", email);
       console.log("Password:", password);
-      console.log("Username:", username);
 
       try {
         const response = await fetch('/user/signin', {
@@ -21,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ email, password, username }),
+          body: JSON.stringify({ email, password}),
         });
 
         console.log("Response received:", response);

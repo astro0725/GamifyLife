@@ -13,14 +13,19 @@ router.get('/', (req, res) => {
 
 // POST request to handle the form submission
 router.post('/', async (req, res) => {
+  const { email, password } = req.body;
+
   try {
-    const result = await signInUser(req.body.email, req.body.password);
-    console.log('Signin successful');
-    res.json({ message: 'Signin successful', data: result });
-    res.redirect('/', 'dashboard');
+    const result = await signInUser(req, email, password);
+
+    if (result.success) {
+      res.render('dashboard')
+    } else {
+      res.status(400).json({ error: result.error });
+    }
   } catch (error) {
-    console.error("Signin Error:", error);
-    res.status(500).json({ error: "Signin Error" });
+    console.error('Error in signin route:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
