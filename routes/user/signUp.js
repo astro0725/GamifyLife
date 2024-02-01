@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   try {
     res.render('signUp', { showSignInButton: true });
   } catch (error) {
-    console.error("Signup Error:", error); 
+    console.error("Failed rendering view:", error); 
   }
 });
 
@@ -22,7 +22,6 @@ router.post('/', async (req, res) => {
       res.status(200).json({ message: 'User registered successfully' });
       res.redirect('/');
     } else {
-      // Handle the error, send an appropriate response
       res.status(400).json({ error: result.error });
     }
   } catch (error) {

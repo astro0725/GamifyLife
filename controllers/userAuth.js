@@ -4,14 +4,9 @@ const User = db.User;
 
 // function to sign up a new user with email and password
 async function signUpUser(req, email, password, username) {
-  try {
-    // check if a user with the same email already exists in the database
-    const existingUser = await User.findOne({ where: { email: email } });
-    if (existingUser) {
-      console.error("Email already taken.");
-      return { error: "Email already taken." };
-    }
+  console.log("Received request body:", req.body);
 
+  try {
     // hash the password using bcrypt
     const hashedPassword = await bcrypt.hash(password, 10);
 

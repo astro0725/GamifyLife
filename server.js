@@ -3,7 +3,6 @@ const express = require('express');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 const hbs = exphbs.create({ defaultLayout: "main" });
 
@@ -30,7 +29,7 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 app.use(express.static("public"));
-app.use(bodyParser.json());
+app.use(express.json());
 
 const routes = require("./routes/index");
 app.use('/', routes)
