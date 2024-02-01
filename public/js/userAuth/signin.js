@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(data => {
         console.log("Signin successful:", data);
-        window.location.href = '/'; 
     })
     .catch(error => {
         console.error("Error during signin:", error);
