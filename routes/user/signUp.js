@@ -14,10 +14,12 @@ router.get('/', (req, res) => {
 // POST request to handle the form submission
 router.post('/', async (req, res) => {
   try {
-    await signUpUser(req.body.email, req.body.password, req.body.username);
-    console.log('Signup successful'); 
+    const result = await signUpUser(req.body.email, req.body.password, req.body.username);
+    console.log('Signup successful');
+    res.json({ message: 'Signup successful', data: result });
   } catch (error) {
     console.error("Signup Error:", error);
+    res.status(500).json({ error: "Signup Error" });
   }
 });
 

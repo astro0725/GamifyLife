@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const signupForm = document.getElementById('signupSubmit');
+  const signupForm = document.getElementById('signupForm'); 
 
   if (signupForm) {
       console.log("Signup form found.");
 
-      signupForm.addEventListener('click', function(event) {
+      signupForm.addEventListener('submit', function(event) {
           event.preventDefault(); 
 
           const email = document.getElementById('email').value;
@@ -28,18 +28,18 @@ document.addEventListener('DOMContentLoaded', function() {
               if (response.ok) {
                   return response.json();
               } else {
-                console.log(err.response.data);;
+                  throw new Error('Signup failed');
               }
           })
           .then(data => {
-            console.log(data);
-            window.location.href = '/'; 
-        })
-        .catch(error => {
-          console.log(err.response.data);;
-        });
-    });
-} else {
-    console.log("signupbutton not found");
-}
+              console.log("Signup successful:", data);
+              window.location.href = '/'; 
+          })
+          .catch(error => {
+              console.error("Error during signup:", error);
+          });
+      });
+  } else {
+      console.log("Signup form not found");
+  }
 });
