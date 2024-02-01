@@ -5,6 +5,7 @@ const User = db.User;
 
 router.get('/', async (req, res) => {
   try {
+    console.log(req.session)
     const userId = req.session.userId;
 
     if (!userId) {

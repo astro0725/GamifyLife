@@ -7,8 +7,8 @@ async function signUpUser(req, email, password, username) {
   console.log("Received request body:", req.body);
 
   try {
-    // hash the password using bcrypt
-    const hashedPassword = await bcrypt.hash(password, 10);
+    // // hash the password using bcrypt
+    // const hashedPassword = await bcrypt.hash(password, 10);
 
     // create a new user record in the database
     const newUser = await User.create({ username, email, password });
@@ -50,6 +50,7 @@ async function signInUser(req, email, password) {
 
     // store user session data once signed in
     req.session.userId = user.id;
+    console.log(req.session)
 
     // log the user info
     console.log("User signed in:", user);
