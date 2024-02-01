@@ -5,7 +5,7 @@ const { signInUser } = require('../../controllers/userAuth');
 // GET request to render the signin page
 router.get('/', (req, res) => {
   try {
-    res.render('signin');
+    res.render('signIn');
   } catch (error) {
     console.error("Signin Error:", error);
   }
