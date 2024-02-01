@@ -5,9 +5,10 @@ CREATE DATABASE IF NOT EXISTS gamify_development;
 USE gamify_development;
 
 CREATE TABLE IF NOT EXISTS Users (
-    userId VARCHAR(255) PRIMARY KEY,
+    userId INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL UNIQUE,
     username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
     level INT DEFAULT 1,
     experience INT DEFAULT 0,
     coins INT DEFAULT 0,

@@ -13,14 +13,23 @@ router.get('/', (req, res) => {
 
 // POST request to handle the form submission
 router.post('/', async (req, res) => {
+  const { email, password, username } = req.body;
+
   try {
-    const result = await signUpUser(req.body.email, req.body.password, req.body.username);
-    console.log('Signup successful');
-    res.json({ message: 'Signup successful', data: result });
+    const result = await signUpUser(req, email, password, username);
+
+    if (result.success) {
+      res.status(200).json({ message: 'User registered successfully' });
+      res.redirect('/');
+    } else {
+      // Handle the error, send an appropriate response
+      res.status(400).json({ error: result.error });
+    }
   } catch (error) {
-    console.error("Signup Error:", error);
-    res.status(500).json({ error: "Signup Error" });
+    console.error('Error in signup route:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
+
 
 module.exports = router;

@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = '/'; 
     })
     .catch(error => {
-        console.error("Error during signup:", error);
+        console.error("Error during signup:", error.message);
     });
   });
   } else {

@@ -17,9 +17,11 @@ async function signUpUser(req, email, password, username) {
 
     // create a new user record in the database
     const newUser = await User.create({ username, email, password: hashedPassword });
+    console.log("New User:", newUser.toJSON());
 
     // store user session data (e.g., user ID) once signed up
     req.session.userId = newUser.id;
+    console.log("Session UserId:", req.session.userId);
 
     // log the user info
     console.log("User registered:", newUser);
