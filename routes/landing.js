@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   if (req.session.userId) {
-    res.render('dashboard'); 
+    res.redirect('/dashboard'); 
   } else {
     res.render('signUp', { showSignInButton: true });
   }
