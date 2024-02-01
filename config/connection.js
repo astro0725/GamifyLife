@@ -1,12 +1,13 @@
-require('dotenv').config();
 const Sequelize = require('sequelize');
-const config = require('./config');
+const config  = require('./config');
 
 let sequelize;
 
-if (ENV === 'production') {
-    sequelize = new Sequelize(process.env[config.use_env_variable], {
-        dialect: config.dialect,
+if (config.production) {
+    sequelize = new Sequelize( {
+      use_env_variable: config.use_env_variable,
+      dialect: config.dialect,
+
     });
 } else {
     sequelize = new Sequelize({
