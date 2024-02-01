@@ -28,9 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (response.ok) {
           const data = await response.json();
-          console.log("Signup successful:", data);
+          if (data.success) {
+            window.location.href = data.redirectUrl; 
+          }
         } else {
-          throw new Error('Signup failed');
+          throw new Error('Signin failed');
         }
       } catch (error) {
         console.error("Error during signup:", error.message);

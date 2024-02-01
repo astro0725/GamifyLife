@@ -26,7 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (response.ok) {
           const data = await response.json();
-          console.log("Signin successful:", data);
+          if (data.success) {
+            window.location.href = data.redirectUrl; 
+          }
         } else {
           throw new Error('Signin failed');
         }

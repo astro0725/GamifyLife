@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
     const result = await signInUser(req, email, password);
 
     if (result.success) {
-      res.redirect('/')
+      res.json({ success: true, redirectUrl: '/dashboard' });
     } else {
       res.status(400).json({ error: result.error });
     }
