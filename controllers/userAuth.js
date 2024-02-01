@@ -11,7 +11,7 @@ async function signUpUser(req, email, password, username) {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // create a new user record in the database
-    const newUser = await User.create({ username, email, password: hashedPassword });
+    const newUser = await User.create({ username, email, password });
     console.log("New User:", newUser.toJSON());
 
     // store user session data (e.g., user ID) once signed up

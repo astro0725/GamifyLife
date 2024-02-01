@@ -17,6 +17,7 @@ router.post('/', async (req, res) => {
     const result = await signInUser(req.body.email, req.body.password);
     console.log('Signin successful');
     res.json({ message: 'Signin successful', data: result });
+    res.redirect('/', 'dashboard');
   } catch (error) {
     console.error("Signin Error:", error);
     res.status(500).json({ error: "Signin Error" });

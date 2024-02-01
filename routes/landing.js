@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const checkAuthentication = require('../utils/authCheck');
 
-router.get('/', checkAuthentication, (req, res) => {
-  res.render('dashboard');
+router.get('/', (req, res) => {
+  if (req.session.userId) {
+    res.render('dashboard'); 
+  } else {
+    res.render('signUp', { showSignInButton: true });
+  }
 });
 
 module.exports = router;

@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
 
     if (result.success) {
       res.status(200).json({ message: 'User registered successfully' });
-      res.redirect('/');
+      res.redirect('/', 'dashboard');
     } else {
       res.status(400).json({ error: result.error });
     }

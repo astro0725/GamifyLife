@@ -12,7 +12,6 @@ const PORT = process.env.PORT;
 const sequelize = require ("./config/connection.js");
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 app.use(cookieParser());
 
 app.use(session({
