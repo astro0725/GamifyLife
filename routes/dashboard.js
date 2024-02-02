@@ -1,9 +1,7 @@
-// Assuming you have a User model set up with Sequelize
 const db = require('../models');
 const User = db.User;
-const { authenticateToken } = require('../utils/auth');
 
-router.get('/', authenticateToken, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const user = await User.findOne({ where: { id: req.user.id } });
 

@@ -1,4 +1,3 @@
-// controllers/dashboardController.js
 const db = require("../models");
 const User = db.User;
 
