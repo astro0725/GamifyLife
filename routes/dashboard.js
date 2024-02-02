@@ -1,31 +1,19 @@
-const express = require('express');
-const router = express.Router();
-const db = require("../models");
+// Assuming you have a User model set up with Sequelize
+const db = require('../models');
 const User = db.User;
+const { authenticateToken } = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', authenticateToken, async (req, res) => {
   try {
-    console.log(req.session)
-    const userId = req.session.userId;
-
-    if (!userId) {
-      return res.redirect('/user/signin');
-    }
-
-    const user = await User.findByPk(userId, {
-      attributes: ['username', 'level', 'experience', 'coins'], 
-    });
+    const user = await User.findOne({ where: { id: req.user.id } });
 
     if (!user) {
-      console.error('User not found');
-      return res.status(404).render('error', { error: 'User not found' });
+      return res.status(404).send('User not found');
     }
 
     res.render('dashboard', { user: user.toJSON() });
   } catch (error) {
     console.error('Error fetching user data:', error);
-    res.status(500).render('error', { error: 'Internal server error' });
+    res.status(500).send('Internal server error');
   }
 });
-
-module.exports = router;
