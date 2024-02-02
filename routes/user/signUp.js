@@ -19,9 +19,9 @@ router.post('/', async (req, res) => {
     const result = await signUpUser(req, email, password, username);
 
     if (result.success) {
-      req.session.save(() => {
+      if (req.session.authenticated) {
         res.json({ success: true, redirectUrl: '/dashboard' });
-      });
+      };
     } else {
       res.status(400).json({ error: result.error });
     }
