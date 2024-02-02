@@ -44,9 +44,10 @@ async function signInUser(req, email, password) {
 
     const isPasswordValid = (password === user.password);
 
-    if (!isPasswordValid) {
-      // passwords don't match
-      return { error: "Invalid password." };
+    if (isPasswordValid) {
+      req.session.userId = user.id; 
+      req.session.authenticated = true; 
+      return { success: true, user };
     }
 
     // store user session data once signed in
