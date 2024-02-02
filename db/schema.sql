@@ -4,6 +4,7 @@ CREATE DATABASE IF NOT EXISTS gamify_development;
 -- Select the newly created database
 USE gamify_development;
 
+-- Users Table
 CREATE TABLE IF NOT EXISTS Users (
     userId INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL UNIQUE,
@@ -16,30 +17,27 @@ CREATE TABLE IF NOT EXISTS Users (
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+-- Tasks Table
 CREATE TABLE IF NOT EXISTS Tasks (
     tasksId VARCHAR(255) PRIMARY KEY,
     title VARCHAR(255) NOT NULL UNIQUE,
     content TEXT,
     difficulty ENUM('low', 'medium', 'high') NOT NULL,
     isCompleted BOOLEAN,
-    userId VARCHAR(255),
+    userId INT,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (userId) REFERENCES Users(userId)
+    FOREIGN KEY (userId) REFERENCES Users(userId) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
+-- Rewards Table
 CREATE TABLE IF NOT EXISTS Rewards (
     rewardsId VARCHAR(255) PRIMARY KEY,
     title VARCHAR(255) NOT NULL UNIQUE,
     cost INT NOT NULL,
     isRedeemed BOOLEAN,
-    userId VARCHAR(255),
+    userId INT, 
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (userId) REFERENCES Users(userId)
+    FOREIGN KEY (userId) REFERENCES Users(userId) ON DELETE SET NULL ON UPDATE CASCADE
 );
-
-
--- CREATE DATABASE IF NOT EXISTS gamify_development;
-
--- USE gamify_test;
