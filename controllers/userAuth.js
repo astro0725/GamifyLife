@@ -15,8 +15,9 @@ async function signUpUser(req, email, password, username) {
     console.log("New User:", newUser.toJSON());
 
     // store user session data (e.g., user ID) once signed up
-    req.session.userId = newUser.id;
-    console.log("Session UserId:", req.session.userId);
+    req.session.authenticated = true; 
+    req.session.userId = newUser.id; 
+    console.log(req.sessionID)
 
     // log the user info
     console.log("User registered:", newUser);
@@ -49,8 +50,9 @@ async function signInUser(req, email, password) {
     }
 
     // store user session data once signed in
-    req.session.userId = user.id;
-    console.log(req.session)
+    req.session.authenticated = true; 
+    req.session.userId = user.id; 
+    console.log(req.sessionID)
 
     // log the user info
     console.log("User signed in:", user);
