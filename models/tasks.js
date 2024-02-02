@@ -22,6 +22,16 @@ module.exports = (sequelize, DataTypes) => {
       isCompleted: {
         type: DataTypes.BOOLEAN,
       },
+      userId: { 
+        type: DataTypes.INTEGER,
+        allowNull: true, 
+        references: {
+          model: 'Users', 
+          key: 'userId',
+        },
+        onDelete: 'SET NULL', 
+        onUpdate: 'CASCADE',
+      },
       createdAt: {
         type: DataTypes.DATE,
       },

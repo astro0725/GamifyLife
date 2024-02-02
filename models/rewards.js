@@ -19,6 +19,16 @@ module.exports = (sequelize, DataTypes) => {
       isRedeemed: {
         type: DataTypes.BOOLEAN,
       },
+      userId: { 
+        type: DataTypes.INTEGER,
+        allowNull: true, 
+        references: {
+          model: 'Users', 
+          key: 'userId',
+        },
+        onDelete: 'SET NULL', 
+        onUpdate: 'CASCADE',
+      },
       createdAt: {
         type: DataTypes.DATE,
       },
@@ -36,5 +46,5 @@ module.exports = (sequelize, DataTypes) => {
         as: 'user' 
     });
   };
-return Rewards;
+  return Rewards;
 };
