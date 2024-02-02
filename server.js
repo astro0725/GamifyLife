@@ -22,12 +22,6 @@ app.use(session({
   cookie: { secure: 'auto', httpOnly: true, maxAge: 60000*100 }
 }));
 
-sequelize.sync().then(() => {
-  console.log('Database synchronized');
-}).catch((err) => {
-  console.error('Failed to synchronize database:', err);
-});
-
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
