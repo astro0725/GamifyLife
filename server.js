@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const cookieParser = require("cookie-parser");
 const exphbs = require("express-handlebars");
 const hbs = exphbs.create({ defaultLayout: "main" });
 
@@ -12,7 +11,6 @@ const PORT = process.env.PORT;
 const sequelize = require ("./config/connection.js");
 
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -21,7 +19,7 @@ app.use(session({
   }),
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: true }
+  cookie: { secure: 'auto', httpOnly: true, maxAge: 60000*100 }
 }));
 
 app.engine("handlebars", hbs.engine);
