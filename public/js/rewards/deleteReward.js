@@ -22,6 +22,7 @@ async function deleteReward(rewardsId) {
 
     if (response.ok) {
       console.log('Reward deleted successfully');
+      window.location.href = '/dashboard';
     } else {
       const error = await response.json();
       console.error('Failed to delete reward:', error.message);
