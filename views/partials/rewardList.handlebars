@@ -9,7 +9,7 @@
           <label class="label">
             <span class="label-text">Title</span>
           </label>
-          <input id="title" placeholder="Title" class="input input-bordered" required />
+          <input id="rew-title" placeholder="Title" class="input input-bordered" required />
         </div>
         <div class="form-control">
           <label class="label">
@@ -25,13 +25,13 @@
     </div>
   </div>
   {{#if rewards.length}}
+  {{#each rewards}}
   <div class="collapse collapse-arrow bg-base-200">
     <input type="radio" name="my-accordion-2" /> 
     <div class="collapse-title text-xl font-medium">
       {{title}}
     </div>
     <div class="collapse-content"> 
-      {{#each rewards}}
       <div>
         <div>
           <div class="card-actions justify-start">
@@ -45,9 +45,9 @@
           </div>
         </div>
       </div>
-      {{/each}}
     </div>
   </div>
+  {{/each}}
   {{else}}
   <p>No rewards available.</p>
   {{/if}}

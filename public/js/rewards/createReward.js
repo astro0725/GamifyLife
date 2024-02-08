@@ -1,5 +1,5 @@
 document.getElementById('createReward').addEventListener('click', function() {
-  const title = document.getElementById('title').value;
+  const title = document.getElementById('rew-title').value;
   const cost = document.getElementById('cost').value;
 
   fetch('/reward/create', {
