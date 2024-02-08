@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const db = require("../models");
 const User = db.User;
+const Session = db.sessions;
 
 // function to sign up a new user with email and password
 async function signUpUser(req, email, password, username) {
@@ -19,7 +20,7 @@ async function signUpUser(req, email, password, username) {
     req.session.userId = newUser.id; 
     console.log(req.sessionID)
 
-    await SessionModel.update({ userId: user.id }, { where: { sid: req.sessionID } });
+    await Session.update({ userId: user.id }, { where: { sid: req.sessionID } });
 
     // log the user info
     console.log("User registered:", newUser);
@@ -57,7 +58,7 @@ async function signInUser(req, email, password) {
     req.session.userId = user.id; 
     console.log(req.sessionID)
 
-    await SessionModel.update({ userId: user.id }, { where: { sid: req.sessionID } });
+    await Session.update({ userId: user.id }, { where: { sid: req.sessionID } });
 
     // log the user info
     console.log("User signed in:", user);
