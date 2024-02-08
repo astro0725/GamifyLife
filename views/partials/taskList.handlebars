@@ -22,7 +22,7 @@
             <span class="label-text">Difficulty</span>
           </label>
           <input id="difficulty" type="range" min="33" max="99" value="33" class="range" step="33" />
-          <div class="w-full flex justify-between text-xs px-2">
+          <div id="difficultyLabel" class="w-full flex justify-between text-xs px-2">
             <span>low</span>
             <span>medium</span>
             <span>high</span>
@@ -61,3 +61,5 @@
   <p>No tasks available.</p>
   {{/if}}
 </div>
+
+<script src="/js/tasks/createTask.js"></script>
