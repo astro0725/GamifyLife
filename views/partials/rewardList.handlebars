@@ -1,6 +1,5 @@
 <div class="card w-96 bg-base-100 shadow-xl">
   <a href="#add-reward-modal" class="btn bg-secondary">Add Reward</a>
-  <!-- Put this part before </body> tag -->
   <div class="modal" role="dialog" id="add-reward-modal">
     <div class="modal-box">
       <h3 class="font-bold text-lg">Create a Reward</h3>
@@ -34,7 +33,7 @@
   {{#each rewards}}
   <div class="collapse collapse-arrow bg-base-200">
     <input type="radio" name="my-accordion-2" /> 
-    <div class="collapse-title text-xl font-medium">
+    <div class="collapse-title text-xl font-medium ">
       {{title}}
     </div>
     <div class="collapse-content"> 
@@ -48,7 +47,8 @@
           </div>
           <p class="pt-4">{{description}}</p>
           <div class="card-actions justify-end">
-            <button class="btn btn-primary">Redeem</button>
+            <button id="edit-reward-{{@index}}" class="btn btn-info">Edit</button>
+            <button id="redeem-reward-{{@index}}" class="btn btn-error">Redeem</button>
           </div>
         </div>
       </div>
