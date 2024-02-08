@@ -49,6 +49,9 @@ CREATE TABLE IF NOT EXISTS Rewards (
     FOREIGN KEY (userId) REFERENCES Users(userId)
 );
 
+ALTER TABLE Sessions ADD COLUMN userId INT;
+ALTER TABLE Sessions ADD FOREIGN KEY (userId) REFERENCES Users(userId);
+
 -- CREATE DATABASE IF NOT EXISTS gamify_development;
 
 -- USE gamify_test;

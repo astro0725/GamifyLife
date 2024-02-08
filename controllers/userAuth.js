@@ -19,6 +19,8 @@ async function signUpUser(req, email, password, username) {
     req.session.userId = newUser.id; 
     console.log(req.sessionID)
 
+    await SessionModel.update({ userId: user.id }, { where: { sid: req.sessionID } });
+
     // log the user info
     console.log("User registered:", newUser);
     return { success: true };
@@ -54,6 +56,8 @@ async function signInUser(req, email, password) {
     req.session.authenticated = true; 
     req.session.userId = user.id; 
     console.log(req.sessionID)
+
+    await SessionModel.update({ userId: user.id }, { where: { sid: req.sessionID } });
 
     // log the user info
     console.log("User signed in:", user);
