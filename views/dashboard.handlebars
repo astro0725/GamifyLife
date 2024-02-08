@@ -1,8 +1,7 @@
-<div>
-  <div class="container justify-center">
-    {{> profileCard }}
-  </div>
-  <div class="container space-x-4">
-    {{> taskList }}
-    {{> rewardList }}
+<div class="grid col-start-1 row-start-1 place-items-center">
+  {{> profileCard }}
+</div>
+<div class="grid grid-cols-2 space-x-4 justify-between">
+  {{> taskList }}
+  {{> rewardList }}
 </div>
