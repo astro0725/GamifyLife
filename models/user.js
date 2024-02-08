@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes) => {
   class User extends sequelize.Sequelize.Model {}
   User.init({
       userId: {
-          type: DataTypes.STRING,
+          type: DataTypes.INTEGER,
           allowNull: false,
           unique: true,
           primaryKey: true,
@@ -48,6 +48,6 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'userId',
         as: 'rewards'
       });
-  };
+    };
   return User;
 };
