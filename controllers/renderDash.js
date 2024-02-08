@@ -10,7 +10,7 @@ async function renderDashboard(req, res) {
       
       const user = await User.findByPk(userId, {
           include: [
-              { model: Task, as: 'tasks', where: { isCompleted: false }, required: false }, 
+              { model: Task, as: 'tasks', required: false }, 
               { model: Reward, as: 'rewards' } 
           ]
       });
@@ -19,20 +19,22 @@ async function renderDashboard(req, res) {
           return res.status(404).send('User not found');
       }
 
+      const userPlain = user.get({ plain: true });
+
       updateLevel(user); 
       await user.save();
 
       const viewData = {
           user: {
-              username: user.username,
-              coins: user.coins,
-              level: user.level,
-              nextLevelThreshold: user.nextLevelThreshold, 
-              levelProgress: user.levelProgress, 
-              currentLevelThresholds: user.currentLevelThresholds 
+            username: userPlain.username,
+            coins: userPlain.coins,
+            level: userPlain.level,
+            nextLevelThreshold: userPlain.nextLevelThreshold,
+            levelProgress: userPlain.levelProgress,
+            currentLevelThresholds: userPlain.currentLevelThresholds
           },
-          tasks: user.tasks,
-          rewards: user.rewards,
+          tasks: userPlain.tasks, 
+          rewards: userPlain.rewards, 
           userIsAuthenticated: true
       };
 

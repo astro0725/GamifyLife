@@ -4,7 +4,19 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const dbGamify = require('./models/')
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({ defaultLayout: 'main' });
+
+const hbs = exphbs.create({ 
+  defaultLayout: 'main',
+  partialsDir: ['views/partials/'],
+  helpers: {
+    eq: function(arg1, arg2, options) {
+      if (options.fn) {
+        return arg1 === arg2 ? options.fn(this) : options.inverse(this);
+      }
+      return arg1 === arg2;
+    }
+  }
+});
 
 const app = express();
 const PORT = process.env.PORT;
@@ -30,12 +42,7 @@ app.use(express.static('public'));
 app.use(express.json());
 
 const routes = require('./routes/index');
-app.use('/', routes)
-
-hbs.handlebars.registerPartial('header', './views/partials/header');
-hbs.handlebars.registerPartial('profileCard', './views/partials/profileCard');
-hbs.handlebars.registerPartial('taskList', './views/partials/taskList');
-hbs.handlebars.registerPartial('rewardList', './views/partials/rewardList');
+app.use('/', routes);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
