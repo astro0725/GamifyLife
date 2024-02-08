@@ -57,7 +57,7 @@ async function createReward(req, title, cost, description) {
 // }
 
 async function deleteReward(req, res) {
-  const rewardId = req.params.rewardId;
+  const rewardsId = req.params.rewardsId;
 
   try {
     // check if there is an authenticated user
@@ -69,7 +69,7 @@ async function deleteReward(req, res) {
 
     // find the reward in the database
     const existingReward = await Reward.findOne({
-      where: { id: rewardId, userId: userId },
+      where: { rewardsId: rewardsId, userId: userId },
     });
 
     if (!existingReward) {

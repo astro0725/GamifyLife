@@ -47,8 +47,8 @@
           </div>
           <p class="pt-4">{{description}}</p>
           <div class="card-actions justify-end">
-            <button id="edit-reward-{{@index}}" class="btn btn-info">Edit</button>
-            <button id="redeem-reward-{{@index}}" class="btn btn-error">Redeem</button>
+            <button id="delete-reward-{{@index}}" data-reward-id="{{rewardsId}}" class="btn btn-info">Delete</button>
+            <button id="redeem-reward-{{@index}}" data-reward-id="{{rewardsId}}" class="btn btn-error">Redeem</button>
           </div>
         </div>
       </div>
@@ -61,3 +61,4 @@
 </div>
 
 <script src="/js/rewards/createReward.js"></script>
+<script src="/js/rewards/deleteReward.js"></script>
