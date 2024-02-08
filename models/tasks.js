@@ -1,12 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
   class Tasks extends sequelize.Sequelize.Model {}
   Tasks.init({
-      tasksId: {
-          type: DataTypes.STRING,
-          allowNull: false,
-          unique: true,
-          primaryKey: true
-      },
+    tasksId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: true,
+      primaryKey: true,
+      autoIncrement: true
+    },
       title: {
           type: DataTypes.STRING,
           allowNull: false,

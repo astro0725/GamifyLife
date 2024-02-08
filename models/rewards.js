@@ -2,10 +2,11 @@ module.exports = (sequelize, DataTypes) => {
   class Rewards extends sequelize.Sequelize.Model {}
   Rewards.init({
       rewardsId: {
-          type: DataTypes.STRING,
-          allowNull: false,
-          unique: true,
-          primaryKey: true
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        unique: true,
+        primaryKey: true,
+        autoIncrement: true
       },
       title: {
           type: DataTypes.STRING,

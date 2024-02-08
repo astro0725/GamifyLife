@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS Sessions (
 );
 
 CREATE TABLE IF NOT EXISTS Tasks (
-    tasksId VARCHAR(255) PRIMARY KEY,
+    tasksId INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL UNIQUE,
     content TEXT,
     difficulty ENUM('low', 'medium', 'high') NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS Tasks (
 );
 
 CREATE TABLE IF NOT EXISTS Rewards (
-    rewardsId VARCHAR(255) PRIMARY KEY,
+    rewardsId INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL UNIQUE,
     cost INT NOT NULL,
     isRedeemed BOOLEAN,
