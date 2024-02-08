@@ -22,6 +22,7 @@ async function deleteTask(tasksId) {
 
     if (response.ok) {
       console.log('Task deleted successfully');
+      window.location.href = '/dashboard';
     } else {
       const error = await response.json();
       console.error('Failed to delete task:', error.message);
