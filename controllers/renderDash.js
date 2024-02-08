@@ -1,31 +1,47 @@
 const db = require("../models");
-const User = db.User;
+const User= db.User;
+const Task = db.Tasks;
+const Reward = db.Rewards;
+const { updateLevel } = require('./onComplete');
 
-const renderDashboard = async (req, res) => {
+async function renderDashboard(req, res) {
   try {
-    console.log(req.session);
-    const userId = req.session.userId;
+      const userId = req.session.userId;
+      
+      const user = await User.findByPk(userId, {
+          include: [
+              { model: Task, as: 'tasks', where: { isCompleted: false }, required: false }, 
+              { model: Reward, as: 'rewards' } 
+          ]
+      });
 
-    if (!userId) {
-      return res.redirect('/user/signin');
-    }
+      if (!user) {
+          return res.status(404).send('User not found');
+      }
 
-    const user = await User.findByPk(userId, {
-      attributes: ['username', 'level', 'experience', 'coins'], 
-    });
+      updateLevel(user); 
+      await user.save();
 
-    if (!user) {
-      console.error('User not found');
-      return res.status(404).render('error', { error: 'User not found' });
-    }
+      const viewData = {
+          user: {
+              username: user.username,
+              coins: user.coins,
+              level: user.level,
+              nextLevelThreshold: user.nextLevelThreshold, 
+              levelProgress: user.levelProgress, 
+              currentLevelThresholds: user.currentLevelThresholds 
+          },
+          tasks: user.tasks,
+          rewards: user.rewards
+      };
 
-    res.render('dashboard', { user: user.toJSON() });
+      res.render('dashboard', viewData);
   } catch (error) {
-    console.error('Error fetching user data:', error);
-    res.status(500).render('error', { error: 'Internal server error' });
+      console.error('Error rendering dashboard:', error);
+      res.status(500).send('Internal Server Error');
   }
-};
+}
 
 module.exports = {
-  renderDashboard,
+  renderDashboard
 };

@@ -1,17 +1,15 @@
-const db = require('../models');
-const User = db.User;
+const express = require('express');
+const router = express.Router();
+const { renderDashboard } = require('../controllers/renderDash');
 
-router.get('/', async (req, res) => {
-  try {
-    const user = await User.findOne({ where: { id: req.user.id } });
-
-    if (!user) {
-      return res.status(404).send('User not found');
-    }
-
-    res.render('dashboard', { user: user.toJSON() });
-  } catch (error) {
-    console.error('Error fetching user data:', error);
-    res.status(500).send('Internal server error');
+function isAuthenticated(req, res, next) {
+  if (req.session && req.session.userId) {
+      return next();
+  } else {
+      res.redirect('/login');
   }
-});
+}
+
+router.get('/dashboard', isAuthenticated, renderDashboard);
+
+module.exports = router;
