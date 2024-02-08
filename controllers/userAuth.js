@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const db = require("../models");
 const User = db.User;
-const Session = db.sessions;
+const Session = db.Sessions;
 
 // function to sign up a new user with email and password
 async function signUpUser(req, email, password, username) {
@@ -17,10 +17,13 @@ async function signUpUser(req, email, password, username) {
 
     // store user session data (e.g., user ID) once signed up
     req.session.authenticated = true; 
-    req.session.userId = newUser.id; 
+    req.session.userId = newUser.userId; 
     console.log(req.sessionID)
 
-    await Session.update({ userId: user.id }, { where: { sid: req.sessionID } });
+    await Session.update({ userId: newUser.userId }, { where: { sid: req.sessionID } });
+    console.log("Session model:", Session);
+    console.log("Session ID:", req.sessionID);
+    console.log("User ID:", newUser.userId); 
 
     // log the user info
     console.log("User registered:", newUser);
@@ -48,17 +51,20 @@ async function signInUser(req, email, password) {
     const isPasswordValid = (password === user.password);
 
     if (isPasswordValid) {
-      req.session.userId = user.id; 
+      req.session.userId = user.userId; 
       req.session.authenticated = true; 
       return { success: true, user };
     }
 
     // store user session data once signed in
     req.session.authenticated = true; 
-    req.session.userId = user.id; 
+    req.session.userId = user.userId; 
     console.log(req.sessionID)
 
-    await Session.update({ userId: user.id }, { where: { sid: req.sessionID } });
+    await Session.update({ userId: user.userId }, { where: { sid: req.sessionID } });
+    console.log("Session model:", Session);
+    console.log("Session ID:", req.sessionID);
+    console.log("User ID:", user.userId); 
 
     // log the user info
     console.log("User signed in:", user);
