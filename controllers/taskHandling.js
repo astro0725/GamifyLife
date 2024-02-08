@@ -57,7 +57,7 @@ async function createTask(req, title, content, difficulty) {
 // }
 
 async function deleteTask(req, res) {
-  const taskId = req.params.taskId;
+  const tasksId = req.params.tasksId;
 
   try {
     // check if there is an authenticated user
@@ -69,7 +69,7 @@ async function deleteTask(req, res) {
 
     // find the task in the database
     const existingTask = await Task.findOne({
-      where: { id: taskId, userId: userId },
+      where: { id: tasksId, userId: userId },
     });
 
     if (!existingTask) {

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function deleteTask(taskId) {
   try {
-    const response = await fetch(`/task/delete/${taskId}`, {
+    const response = await fetch(`/task/delete/${tasksId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
