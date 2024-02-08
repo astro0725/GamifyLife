@@ -1,10 +1,37 @@
 <div class="card w-96 bg-base-100 shadow-xl">
-  <!-- The button to open modal -->
-  <a href="#add-task-modal" class="btn">open modal</a>
+  <a href="#add-task-modal" class="btn">Add Task</a>
   <!-- Put this part before </body> tag -->
   <div class="modal" role="dialog" id="add-task-modal">
     <div class="modal-box">
-      <div class="card w-96 bg-base-100 shadow-xl"></div>
+      <h3 class="font-bold text-lg">Create a Task</h3>
+      <form id="taskForm" class="card-body">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Title</span>
+          </label>
+          <input id="title" placeholder="Title" class="input input-bordered" required />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Description</span>
+          </label>
+          <input id="task-desc" placeholder="Type description here..." class="textarea textarea-bordered"/>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Difficulty</span>
+          </label>
+          <input id="difficulty" type="range" min="33" max="99" value="33" class="range" step="33" />
+          <div class="w-full flex justify-between text-xs px-2">
+            <span>low</span>
+            <span>medium</span>
+            <span>high</span>
+          </div>
+        </div>
+      </form>
+      <div class="modal-action">
+      <a href="#" class="btn">Yay!</a>
+      </div>
     </div>
   </div>
   {{#if tasks.length}}
