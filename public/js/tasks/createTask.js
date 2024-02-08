@@ -20,7 +20,6 @@ document.getElementById('createTask').addEventListener('click', function() {
   .then(response => response.json())
   .then(data => {
     console.log('Success:', data);
-    window.location.reload();
   })
   .catch((error) => {
     console.error('Error:', error);
