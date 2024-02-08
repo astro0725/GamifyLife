@@ -69,7 +69,7 @@ async function deleteTask(req, res) {
 
     // find the task in the database
     const existingTask = await Task.findOne({
-      where: { id: tasksId, userId: userId },
+      where: { tasksid: tasksId, userId: userId },
     });
 
     if (!existingTask) {

@@ -1,13 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.delete-task').forEach(button => {
-    button.addEventListener('click', function() {
-      const taskId = this.getAttribute('data-task-id');
-      deleteTask(taskId);
-    });
+  document.body.addEventListener('click', function(event) {
+    if (event.target.id.startsWith('delete-task-')) {
+      const tasksId = event.target.getAttribute('data-task-id');
+      if (tasksId) {
+        console.log('Delete button clicked for task ID:', tasksId);
+        deleteTask(tasksId);
+      }
+    }
   });
 });
 
-async function deleteTask(taskId) {
+
+async function deleteTask(tasksId) {
   try {
     const response = await fetch(`/task/delete/${tasksId}`, {
       method: 'DELETE',
@@ -18,7 +22,6 @@ async function deleteTask(taskId) {
 
     if (response.ok) {
       console.log('Task deleted successfully');
-      document.querySelector(`[data-task-id="${taskId}"]`).closest('.task-item').remove();
     } else {
       const error = await response.json();
       console.error('Failed to delete task:', error.message);
