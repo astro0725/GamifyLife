@@ -26,35 +26,35 @@ async function createReward(req, title, cost, description) {
   }
 }
 
-// function to edit data of already existing Reward
-async function editReward(req, rewardId, updatedData) {
-  try {
-    // check if there is an authenticated user
-    if (!req.session.userId) {
-      return { error: "User not authenticated." };
-    }
+// // function to edit data of already existing Reward
+// async function editReward(req, rewardId, updatedData) {
+//   try {
+//     // check if there is an authenticated user
+//     if (!req.session.userId) {
+//       return { error: "User not authenticated." };
+//     }
 
-    const userId = req.session.userId;
+//     const userId = req.session.userId;
 
-    // find the Reward in the database
-    const existingReward = await Reward.findOne({
-      where: { id: rewardId, userId: userId },
-    });
+//     // find the Reward in the database
+//     const existingReward = await Reward.findOne({
+//       where: { id: rewardId, userId: userId },
+//     });
 
-    if (!existingReward) {
-      return { error: "Reward not found." };
-    }
+//     if (!existingReward) {
+//       return { error: "Reward not found." };
+//     }
 
-    // update the Reward data with the provided updatedData
-    await existingReward.update(updatedData);
+//     // update the Reward data with the provided updatedData
+//     await existingReward.update(updatedData);
 
-    console.log("Reward edited successfully:", existingReward);
-    return { success: true, Reward: existingReward };
-  } catch (error) {
-    console.error("Error editing Reward:", error);
-    return { error: "Error editing Reward." };
-  }
-}
+//     console.log("Reward edited successfully:", existingReward);
+//     return { success: true, Reward: existingReward };
+//   } catch (error) {
+//     console.error("Error editing Reward:", error);
+//     return { error: "Error editing Reward." };
+//   }
+// }
 
 async function deleteReward(req, res) {
   const rewardId = req.params.rewardId;
@@ -89,6 +89,6 @@ async function deleteReward(req, res) {
 
 module.exports = {
   createReward,
-  editReward,
+  // editReward,
   deleteReward,
 };
