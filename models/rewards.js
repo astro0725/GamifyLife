@@ -17,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      description: {
+        type: DataTypes.STRING,
+      },
       isRedeemed: {
         type: DataTypes.BOOLEAN,
       },

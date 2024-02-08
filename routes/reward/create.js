@@ -5,7 +5,7 @@ const { createReward } = require('../../controllers/rewardHandling');
 // POST request to create a new reward
 router.post('/', async (req, res) => {
   const { title, cost } = req.body; 
-  const result = await createReward(req, title, cost);
+  const result = await createReward(req, title, cost, description);
 
   if (result.success) {
     console.log('Reward created successfully');

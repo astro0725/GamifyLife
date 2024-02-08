@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS Rewards (
     rewardsId INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL UNIQUE,
     cost INT NOT NULL,
+    description TEXT,
     isRedeemed BOOLEAN,
     userId INT, 
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
