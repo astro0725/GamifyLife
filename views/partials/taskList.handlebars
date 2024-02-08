@@ -44,17 +44,15 @@
     </div>
     <div class="collapse-content"> 
       <div>
-        <p class="pb-8">{{content}}</p>
-        <div class="grid grid-cols-2 space-x-4 justify-between">
-          <div>
-            <div class="badge {{#if (eq difficulty 'low')}}badge-primary{{/if}}">low</div>
-            <div class="badge {{#if (eq difficulty 'medium')}}badge-primary{{/if}}">medium</div>
-            <div class="badge {{#if (eq difficulty 'high')}}badge-primary{{/if}}">high</div>
-          </div>
+        <div class="grid grid-cols-3 gap-4 place-items-center">
+          <div class="badge {{#if (eq difficulty 'low')}}badge-primary{{/if}}">low</div>
+          <div class="badge {{#if (eq difficulty 'medium')}}badge-primary{{/if}}">medium</div>
+          <div class="badge {{#if (eq difficulty 'high')}}badge-primary{{/if}}">high</div>
+        </div>
+        <p class="pt-4">{{content}}</p>
           <div class="card-actions justify-end">
             <button id="complete-task-{{@index}}" class="btn btn-primary">Complete</button>
           </div>
-        </div>
       </div>
     </div>
   </div>
