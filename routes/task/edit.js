@@ -5,10 +5,10 @@ const { editTask } = require('../../controllers/taskHandling');
 // PUT request to edit an existing task
 router.put('/:taskId', async (req, res) => {
   const taskId = req.params.taskId; 
-  const { title, description, difficulty } = req.body; 
-  const result = await editTask(req, rewardId, {
+  const { title, content, difficulty } = req.body; 
+  const result = await editTask(req, taskId, {
     title: title,
-    description: description,
+    content: content,
     difficulty: difficulty,
   });
 

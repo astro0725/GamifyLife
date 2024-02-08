@@ -30,8 +30,8 @@
         </div>
       </form>
       <div class="modal-action">
-      <a href="" class="btn bg-red-700">Cancel</a>
-      <a href="" id="createTask" class="btn bg-success">Confirm</a>
+        <a href="" class="btn bg-red-700">Cancel</a>
+        <a href="" id="createTask" class="btn bg-success">Confirm</a>
       </div>
     </div>
   </div>
@@ -51,7 +51,41 @@
         </div>
         <p class="pt-4">{{content}}</p>
           <div class="card-actions justify-end">
-            <button id="edit-task-{{@index}}" class="btn btn-info">Edit</button>
+            <a href="#add-task-modal" id="edit-task-{{@index}}" class="btn btn-info">Edit</button>
+            <div class="modal" role="dialog" id="add-task-modal">
+              <div class="modal-box">
+                <h3 class="font-bold text-lg">Create a Task</h3>
+                <form id="taskForm" class="card-body">
+                  <div class="form-control">
+                    <label class="label">
+                      <span class="label-text">Title</span>
+                    </label>
+                    <input id="edit-title" placeholder="Title" class="input input-bordered" required />
+                  </div>
+                  <div class="form-control">
+                    <label class="label">
+                      <span class="label-text">Description</span>
+                    </label>
+                    <textarea id="edit-task-desc" placeholder="Type description here..." class="textarea textarea-bordered"></textarea>
+                  </div>
+                  <div class="form-control">
+                    <label class="label">
+                      <span class="label-text">Difficulty</span>
+                    </label>
+                    <input id="difficulty" type="range" min="33" max="99" value="33" class="range" step="33" />
+                    <div id="edit-difficultyLabel" class="w-full flex justify-between text-xs px-2">
+                      <span>low</span>
+                      <span>medium</span>
+                      <span>high</span>
+                    </div>
+                  </div>
+                </form>
+                <div class="modal-action">
+                  <a href="" class="btn bg-red-700">Cancel</a>
+                  <a href="" id="editTask" class="btn bg-success">Confirm</a>
+                </div>
+              </div>
+            </div>
             <button id="complete-task-{{@index}}" class="btn btn-error">Complete</button>
           </div>
       </div>
