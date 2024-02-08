@@ -1,5 +1,5 @@
 # GamifyLife
-Have you ever felt tired of the same old ToDo apps and need to feel like you're in an RPG finishing quests and getting rewards? Try GamifyLife today! ![Gamify](https://gamify-todo-7c1ee43b6898.herokuapp.com)
+Have you ever felt tired of the same old ToDo apps and need to feel like you're in an RPG finishing quests and getting rewards? Try GamifyLife today! [Gamify](https://gamify-todo-7c1ee43b6898.herokuapp.com)
 
 ## Table of Contents
 - [Features](#features)
@@ -23,7 +23,7 @@ Have you ever felt tired of the same old ToDo apps and need to feel like you're 
 
 ## Credits
 
-Thank you to ![Anson the Developer](https://www.youtube.com/@ansonthedev) for his lessons on Express Sessions. 
+Thank you to [Anson the Developer](https://www.youtube.com/@ansonthedev) for his lessons on Express Sessions. 
 
 ---
 
