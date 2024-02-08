@@ -40,14 +40,15 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: true,
   });
   User.associate = models => {
-      User.hasMany(models.Tasks, {
-          foreignKey: 'userId',
-          as: 'tasks'
-      });
-      User.hasMany(models.Rewards, {
+    User.hasOne(models.Sessions);
+    User.hasMany(models.Tasks, {
         foreignKey: 'userId',
-        as: 'rewards'
-      });
+        as: 'tasks'
+    });
+    User.hasMany(models.Rewards, {
+      foreignKey: 'userId',
+      as: 'rewards'
+    });
     };
   return User;
 };
