@@ -3,10 +3,24 @@
   <!-- Put this part before </body> tag -->
   <div class="modal" role="dialog" id="add-reward-modal">
     <div class="modal-box">
-      <h3 class="font-bold text-lg">Hello!</h3>
-      <p class="py-4">This modal works with anchor links</p>
+      <h3 class="font-bold text-lg">Create a Reward</h3>
+      <form id="taskForm" class="card-body">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Title</span>
+          </label>
+          <input id="title" placeholder="Title" class="input input-bordered" required />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Cost</span>
+          </label>
+          <input id="reward-cost" placeholder="$$" class="input input-bordered" required />
+        </div>
+      </form>
       <div class="modal-action">
-      <a href="#" class="btn">Yay!</a>
+      <a href="#" class="btn bg-red-700">Cancel</a>
+      <a href="#" id="createTask" class="btn bg-success">Confirm</a>
       </div>
     </div>
   </div>
