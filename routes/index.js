@@ -11,6 +11,7 @@ const logOutRoutes = require('./user/logOut');
 const deleteUserRoutes = require('./user/deleteUser');
 
 const createTaskRoutes = require('./task/create');
+const listTaskRoutes = require('./task/list');
 const editTaskRoutes = require('./task/edit');
 const deleteTaskRoutes = require('./task/delete');
 const completeTaskRoutes = require('./task/complete');
@@ -30,6 +31,7 @@ router.use('/user/logout', logOutRoutes);
 router.use('/user/delete', deleteUserRoutes);
 
 router.use('/task/create', createTaskRoutes);
+router.use('/task/list', listTaskRoutes);
 router.use('/task/edit', editTaskRoutes);
 router.use('/task/delete', deleteTaskRoutes);
 router.use('/task/complete', completeTaskRoutes);

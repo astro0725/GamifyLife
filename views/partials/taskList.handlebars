@@ -36,13 +36,13 @@
     </div>
   </div>
   {{#if tasks.length}}
+  {{#each tasks}}
   <div class="collapse collapse-arrow bg-base-200">
-    <input type="radio" name="my-accordion-2" /> 
+    <input type="radio" name="my-accordion-{{@index}}" /> 
     <div class="collapse-title text-xl font-medium">
       {{title}}
     </div>
     <div class="collapse-content"> 
-      {{#each tasks}}
       <div>
         <p>{{description}}</p>
         <div>
@@ -51,15 +51,16 @@
           <div class="badge {{#if (eq difficulty 'high')}}badge-primary{{/if}}">high</div>
         </div>
         <div class="card-actions justify-end">
-            <button id="complete-task" class="btn btn-primary">Complete</button>
+            <button id="complete-task-{{@index}}" class="btn btn-primary">Complete</button>
           </div>
       </div>
-      {{/each}}
     </div>
   </div>
-  {{else}}
+  {{/each}}
+{{else}}
   <p>No tasks available.</p>
-  {{/if}}
+{{/if}}
+
 </div>
 
 <script src="/js/tasks/createTask.js"></script>
