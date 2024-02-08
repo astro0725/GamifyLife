@@ -51,8 +51,8 @@
         </div>
         <p class="pt-4">{{content}}</p>
           <div class="card-actions justify-end">
-            <a href="#add-task-modal" id="edit-task-{{@index}}" class="btn btn-info">Edit</button>
-            <div class="modal" role="dialog" id="add-task-modal">
+            <a href="#edit-task-modal" data-task-index="{{@index}}" id="edit-task-{{@index}}" class="btn btn-info">Edit</button>
+            <div class="modal" role="dialog" id="edit-task-modal">
               <div class="modal-box">
                 <h3 class="font-bold text-lg">Create a Task</h3>
                 <form id="taskForm" class="card-body">
