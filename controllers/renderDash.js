@@ -32,7 +32,8 @@ async function renderDashboard(req, res) {
               currentLevelThresholds: user.currentLevelThresholds 
           },
           tasks: user.tasks,
-          rewards: user.rewards
+          rewards: user.rewards,
+          userIsAuthenticated: true
       };
 
       res.render('dashboard', viewData);
