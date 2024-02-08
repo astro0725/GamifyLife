@@ -1,7 +1,7 @@
 const db = require("../models");
 const Task = db.Tasks;
 
-async function createTask(req, title, description, difficulty) {
+async function createTask(req, title, content, difficulty) {
   try {
     // check if there is an authenticated user 
     if (!req.session.userId) {
@@ -13,7 +13,7 @@ async function createTask(req, title, description, difficulty) {
     // create a new task record associated with the authenticated user
     const newTask = await Task.create({
       title: title,
-      description: description,
+      content: content,
       difficulty: difficulty,
       userId: userId, 
     });

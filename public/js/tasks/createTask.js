@@ -1,6 +1,6 @@
 document.getElementById('createTask').addEventListener('click', function() {
   const title = document.getElementById('title').value;
-  const description = document.getElementById('task-desc').value;
+  const content = document.getElementById('task-desc').value;
   const difficulty = document.getElementById('difficulty').value;
 
   let difficultyLabel = 'Low'; 
@@ -15,7 +15,7 @@ document.getElementById('createTask').addEventListener('click', function() {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ title, description, difficulty: difficultyLabel }), 
+    body: JSON.stringify({ title, content, difficulty: difficultyLabel }), 
   })
   .then(response => response.json())
   .then(data => {
