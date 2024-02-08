@@ -4,9 +4,9 @@ const { createTask } = require('../../controllers/taskHandling');
 
 // POST request to create a new task
 router.post('/', async (req, res) => {
-  const { title, description, difficulty } = req.body; 
+  const { title, content, difficulty } = req.body; 
 
-  const result = await createTask(req, title, description, difficulty);
+  const result = await createTask(req, title, content, difficulty);
 
   if (result.success) {
     console.log('Task created successfully:', result.task); 
