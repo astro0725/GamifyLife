@@ -5,7 +5,6 @@ Have you ever felt tired of the same old ToDo apps and need to feel like you're 
 - [Technologies](#technologies)
 - [Features](#features)
 - [Screenshots](#screenshots)
-- [Demo](#demo)
 - [Future Development](#Development)
 - [Issues](#issues)
 - [Credits](#credits)
@@ -23,10 +22,6 @@ Have you ever felt tired of the same old ToDo apps and need to feel like you're 
 - Quest completion gives you experience to level up as coins to redeem your rewards
 
 ## Screenshots
-
-#### Eventually put something here
-
-## Demo
 
 #### Eventually put something here
 
