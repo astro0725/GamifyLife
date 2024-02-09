@@ -3,21 +3,21 @@ const router = express.Router();
 const { completeTask } = require('../../controllers/onComplete'); 
 
 // POST route to complete a task
-router.post('/:taskId', async (req, res) => {
-  const taskId = req.params.taskId;
+router.post('/:tasksId', async (req, res) => {
+  const tasksId = req.params.tasksId;
 
-  console.log(`Attempting to complete task with ID: ${taskId}`); 
+  console.log(`Attempting to complete task with ID: ${tasksId}`); 
 
   try {
-    const result = await completeTask(taskId);
+    const result = await completeTask(tasksId);
 
     if (result.success) {
-      console.log(`Task with ID: ${taskId} completed successfully: ${result}`);
+      console.log(`task with ID: ${tasksId} completed successfully: ${result}`);
     } else {
-      console.error(`Error in completing task with ID: ${taskId}: ${result.error}`); 
+      console.error(`Error in completing task with ID: ${tasksId}: ${result.error}`); 
     }
   } catch (error) {
-    console.error(`Server error while completing task with ID: ${taskId}: ${error.message}`); 
+    console.error(`Server error while completing task with ID: ${tasksId}: ${error.message}`); 
     res.status(500).json({ error: 'Internal server error' });
   }
 });

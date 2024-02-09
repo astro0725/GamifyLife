@@ -4,20 +4,20 @@ const { redeemReward } = require('../../controllers/onComplete');
 
 router.post('/:rewardId', async (req, res) => {
   const userId = req.session.userId; 
-  const rewardId = req.params.rewardId;
+  const rewardsId = req.params.rewardsId;
 
-  console.log(`User ${userId} attempting to redeem reward with ID: ${rewardId}`); 
+  console.log(`User ${userId} attempting to redeem rewards with ID: ${rewardsId}`); 
 
   try {
-    const result = await redeemReward(userId, rewardId);
+    const result = await redeemReward(userId, rewardsId);
 
     if (result.success) {
-      console.log(`Reward: ${result} with ID: ${rewardId} redeemed successfully by user ${userId}`); 
+      console.log(`Rewards: ${result} with ID: ${rewardsId} redeemed successfully by user ${userId}`); 
     } else {
-      console.error(`Error in redeeming reward with ID: ${rewardId} by user ${userId}: ${result.error}`);
+      console.error(`Error in redeeming rewards with ID: ${rewardsId} by user ${userId}: ${result.error}`);
     }
   } catch (error) {
-    console.error(`Server error while redeeming reward with ID: ${rewardId} by user ${userId}: ${error.message}`); // Log unexpected server errors
+    console.error(`Server error while redeeming rewards with ID: ${rewardsId} by user ${userId}: ${error.message}`); // Log unexpected server errors
     res.status(500).json({ error: 'Internal server error' });
   }
 });

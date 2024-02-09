@@ -4,10 +4,10 @@ const User = db.User;
 const Reward = db.Reward;
 
 // function to mark a task as completed and update user's experience and coins
-async function completeTask(taskId) {
+async function completeTask(tasksId) {
   try {
     // find the task by its ID
-    const task = await Task.findByPk(taskId);
+    const task = await Task.findByPk(tasksId);
     if (!task) {
       return { error: "Task not found." };
     }
@@ -73,11 +73,11 @@ function updateLevel(user) {
 }
 
 // function to redeem a reward using user's coins
-async function redeemReward(userId, rewardId) {
+async function redeemReward(userId, rewardsId) {
   try {
     // find the user and reward by their IDs
     const user = await User.findByPk(userId);
-    const reward = await Reward.findByPk(rewardId);
+    const reward = await Reward.findByPk(rewardsId);
 
     // check if the reward exists
     if (!reward) {
