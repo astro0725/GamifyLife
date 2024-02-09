@@ -33,6 +33,7 @@ Have you ever felt tired of the same old ToDo apps and need to feel like you're 
     -  Separate buttons to completely remove your to-dos and rewards respectively
     -  Implement BCRPYT to crypto passwords so that plain text passwords are not passed to the DB
     -  Integrate password change system
+- Create more alerts in UI to ensure a user action, like deleting the account or deleting a task/reward.
 - Eventually, integrate "due dates" to tasks that alert you when they're due.
 - Add different types of to-dos like habit tracking and dailies that track your "streaks" 
 - Create a more complex leveling system that uses more math as opposed to preset number settings.
