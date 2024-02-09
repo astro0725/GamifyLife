@@ -23,7 +23,8 @@ Have you ever felt tired of the same old ToDo apps and need to feel like you're 
 
 ## Screenshots
 
-#### Eventually put something here
+![dash-view](./img-assets/dash-view.png)
+![create-task](./img-assets/create-task.png)
 
 ## Development 
 - Currently in process:
