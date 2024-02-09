@@ -35,15 +35,16 @@ Have you ever felt tired of the same old ToDo apps and need to feel like you're 
     -  The ability to edit already created tasks/rewards
     -  Reset account (e.g. reset account back to level 1 and 0 coins)
     -  Separate buttons to completely remove your to-dos and rewards respectively
-- Eventually integrate "due dates" that alert you when they're due.
+- Eventually integrate "due dates" to tasks that alert you when they're due.
 - Add different types of to-dos like habit tracking and dailies that track your "streaks" 
 - Create a more complex levelling system that uses more math as opposed to preset number settings.
-- Integrate a calendar system where you can merge your calendar from different sources (e.g. apple calendar, google calendar)
+- Integrate a calendar system where you can merge your calendar from different sources (e.g. apple calendar, google calendar) as well as handling own inputs
 - Create a penalty system for missing "dailies", "habits" or tasks that didn't get completed at the end of a 24-hour cycle, breaking habit streaks, or not completing a task by its due date (e.g. create a health bar that will dock HP if user misses a task or other)
 
 ## Issues
 - [Level/Experience/Coins not updating on "complete" or "redeem"](https://github.com/astro0725/GamifyLife/issues/1)
 - [On "complete" of task it should exclude it from the DOM](https://github.com/astro0725/GamifyLife/issues/2)
+  
 ## Credits
 
 Thank you to [Anson the Developer](https://www.youtube.com/@ansonthedev) for his lessons on Express Sessions. 
