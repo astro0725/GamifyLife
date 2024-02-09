@@ -65,11 +65,17 @@ function updateLevel(user) {
   }
 
   // calculate the user's level as a percentage
-  const nextLevelThreshold = levelThresholds[user.level] || levelThresholds[levelThresholds.length - 1];
-  const currentLevelThreshold = levelThresholds[user.level - 1] || 0;
+  const isAtOrAboveMaxLevel = user.level >= levelThresholds.length;
+  const nextLevelThreshold = isAtOrAboveMaxLevel ? levelThresholds[levelThresholds.length - 1] : levelThresholds[user.level];
+  const currentLevelThreshold = levelThresholds[Math.max(0, user.level - 1)];
+
   const experienceWithinLevel = user.experience - currentLevelThreshold;
-  const experienceToNextLevel = nextLevelThreshold - currentLevelThreshold;
-  user.levelProgress = (experienceWithinLevel / experienceToNextLevel) * 100;
+  const experienceToNextLevel = isAtOrAboveMaxLevel ? 0 : nextLevelThreshold - currentLevelThreshold; 
+
+  user.levelProgress = isAtOrAboveMaxLevel ? 100 : (experienceWithinLevel / experienceToNextLevel) * 100;
+
+  user.nextLevelThreshold = nextLevelThreshold;
+  user.currentLevelThreshold = currentLevelThreshold;
 }
 
 // function to redeem a reward using user's coins

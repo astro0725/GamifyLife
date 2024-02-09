@@ -25,18 +25,19 @@ async function renderDashboard(req, res) {
       await user.save();
 
       const viewData = {
-          user: {
+        user: {
             username: userPlain.username,
             coins: userPlain.coins,
             level: userPlain.level,
-            nextLevelThreshold: userPlain.nextLevelThreshold,
-            levelProgress: userPlain.levelProgress,
-            currentLevelThresholds: userPlain.currentLevelThresholds
-          },
-          tasks: userPlain.tasks, 
-          rewards: userPlain.rewards, 
-          userIsAuthenticated: true
-      };
+            experience: userPlain.experience,
+            levelProgress: user.levelProgress,
+            nextLevelThreshold: user.nextLevelThreshold, 
+            currentLevelThreshold: user.currentLevelThreshold 
+        },
+        tasks: userPlain.tasks, 
+        rewards: userPlain.rewards, 
+        userIsAuthenticated: true
+    };
 
       res.render('dashboard', viewData);
   } catch (error) {
