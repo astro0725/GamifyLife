@@ -31,7 +31,7 @@ Have you ever felt tired of the same old ToDo apps and need to feel like you're 
     -  The ability to edit already created tasks/rewards
     -  Reset account (e.g. reset account back to level 1 and 0 coins)
     -  Separate buttons to completely remove your to-dos and rewards respectively
-    -  Implement BCRPYT to crypto passwords that can be saved to the DOM
+    -  Implement BCRPYT to crypto passwords so that plain text passwords are not passed to the DB
     -  Integrate password change system
 - Eventually, integrate "due dates" to tasks that alert you when they're due.
 - Add different types of to-dos like habit tracking and dailies that track your "streaks" 
