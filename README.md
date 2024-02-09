@@ -1,10 +1,12 @@
 # GamifyLife
-Have you ever felt tired of the same old ToDo apps and need to feel like you're in an RPG finishing quests and getting rewards? Try GamifyLife today! [Gamify](https://gamify-todo-7c1ee43b6898.herokuapp.com)
+Have you ever felt tired of the same old ToDo apps and need to feel like you're in an RPG finishing quests, levelling up and getting rewards? Try GamifyLife today! [Gamify](https://gamify-todo-7c1ee43b6898.herokuapp.com)
 
 ## Table of Contents
 - [Features](#features)
 - [Screenshots](#screenshots)
 - [Demo](#demo)
+- [Future Development](#Development)
+- [Technologies](#technologies)
 - [Credits](#credits)
 - [License](#license)
 
@@ -14,12 +16,25 @@ Have you ever felt tired of the same old ToDo apps and need to feel like you're 
 
 ## Screenshots
 
-### Eventually put something here
+#### Eventually put something here
 
 ## Demo
 
-### Eventually put something here
+#### Eventually put something here
 
+## Development 
+- Eventually integrate "due dates" that alert you when they're due.
+- Add different types of to-dos like habit tracking and dailies that track your "streaks" 
+- Create a more complex levelling system that uses more math as opposed to preset number settings.
+- Integrate a calendar system where you can merge your calendar from different sources (e.g. apple calendar, google calendar)
+- Create a penalty system for missing "dailies" or tasks that didn't get completed past their due date (e.g. create a health bar that will dock HP if user misses a task or other)
+
+## Technologies
+- MySQL/SequelizeORM
+- Vanilla JavaScript
+- Node.js/Express.js
+- TailwindCSS/DaisyUI Kit
+- Heroku/JAWSDB
 
 ## Credits
 
