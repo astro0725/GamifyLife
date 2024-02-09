@@ -27,7 +27,7 @@ Have you ever felt tired of the same old ToDo apps and need to feel like you're 
 - Add different types of to-dos like habit tracking and dailies that track your "streaks" 
 - Create a more complex levelling system that uses more math as opposed to preset number settings.
 - Integrate a calendar system where you can merge your calendar from different sources (e.g. apple calendar, google calendar)
-- Create a penalty system for missing "dailies" or tasks that didn't get completed past their due date (e.g. create a health bar that will dock HP if user misses a task or other)
+- Create a penalty system for missing "dailies", "habits" or tasks that didn't get completed at the end of a 24-hour cycle, breaking habit streaks, or not completing a task by its due date (e.g. create a health bar that will dock HP if user misses a task or other)
 
 ## Technologies
 - MySQL/SequelizeORM
