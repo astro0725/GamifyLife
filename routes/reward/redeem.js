@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { redeemReward } = require('../../controllers/onComplete'); 
 
-router.post('/:rewardId', async (req, res) => {
+router.post('/:rewardsId', async (req, res) => {
   const userId = req.session.userId; 
   const rewardsId = req.params.rewardsId;
 

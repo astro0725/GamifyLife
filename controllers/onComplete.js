@@ -1,7 +1,7 @@
 const db = require("../models");
 const Task = db.Tasks;
 const User = db.User;
-const Reward = db.Reward;
+const Reward = db.Rewards;
 
 // function to mark a task as completed and update user's experience and coins
 async function completeTask(tasksId) {
